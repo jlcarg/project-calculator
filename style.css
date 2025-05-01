@@ -4,6 +4,61 @@ html {
     padding: 0;
 }
 
-h1 {
-    color: red;
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display,
+.keypad {
+    border: 10px,solid, black;
+}
+
+.display {
+    height: 150px;
+    width: 490px;
+    background-color: #5d7e5d;    
+}
+
+.keypad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 490px;
+    height: 600px;
+    background-color: darkgray;
+}
+
+.button {
+    width: 122.5px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    border: 0.5px solid lightgray;
+}
+
+.⌫,
+.equal {
+    width: 245px; 
+}
+
+.C,
+.⌫ {
+    background-color: cornflowerblue;
+}
+
+.addition,
+.subtraction,
+.multiplication,
+.division,
+.dot {
+    background-color: darkgray;
+}
+
+
+.equal {
+    background-color: lightsalmon;
 }
