@@ -1,4 +1,10 @@
-const keypad = document.querySelector(".keypad");
+const display = document.querySelector('.display');
+const displayedDigits = document.createElement('div');
+displayedDigits.classList.add('digits');
+display.appendChild(displayedDigits);
+displayedDigits.textContent = "123000000000000000000000000000"
+
+const keypad = document.querySelector('.keypad');
 const buttonsChars = ['C', '⌫'
                       , 'addition', '7', '8', '9'
                       , 'subtraction', '4', '5', '6'
@@ -13,30 +19,31 @@ for (let button of buttonsChars) {
 
     switch (button) {
         case "addition":
-            newButton.textContent = "+";
+            newButton.textContent = '+';
             break;
         case "subtraction":
-            newButton.textContent = "-";
+            newButton.textContent = '-';
             break;
         case "multiplication":
-            newButton.textContent = "*";
+            newButton.textContent = '*';
             break;
         case "division":
-            newButton.textContent = "/";
+            newButton.textContent = '/';
             break;
         case "dot":
-            newButton.textContent = ".";
+            newButton.textContent = '.';
             break;
         case "equal":
-            newButton.textContent = "=";
+            newButton.textContent = '=';
             break;
     }
 
 }
 
+
 let number1 = 0;
 let number2 = 0;
-let operator = "";
+let operator = '';
 
 function add(num1, num2) {
     return num1 + num2;
@@ -58,16 +65,16 @@ function operate(num1, num2, operator) {
     
     let operation;
     switch (operator) {
-        case "+":
+        case '+':
             operation = add;
             break;
-        case "-":
+        case '-':
             operation = subtract;
             break;
-        case "*":
+        case '*':
             operation = multiply;
             break;
-        case "/":
+        case '/':
             operation = divide;
             break;
     }

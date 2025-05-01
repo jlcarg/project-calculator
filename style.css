@@ -21,7 +21,16 @@ html {
 .display {
     height: 150px;
     width: 490px;
-    background-color: #5d7e5d;    
+    background-color: #5d7e5d;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 60px;
+}
+
+.digits {
+    padding: 0 10px;
+    overflow: hidden;
 }
 
 .keypad {
