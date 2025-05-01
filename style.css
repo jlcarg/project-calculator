@@ -59,10 +59,10 @@ html {
     background-color: cornflowerblue;
 }
 
-.addition,
-.subtraction,
-.multiplication,
-.division,
+.add,
+.subtract,
+.multiply,
+.divide,
 .dot {
     background-color: darkgray;
 }
