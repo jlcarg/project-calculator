@@ -61,10 +61,11 @@ const buttonC = buttonsArr.find(button => button.textContent == 'C');
 const buttonBackspace = buttonsArr.find(button => button.textContent == '⌫');
 
 buttonsFromOneToNine.forEach(button => button.addEventListener('click', event => {
+    let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null) {num2 = event.target.textContent}
-                else {num2 += event.target.textContent;}
+            if (num2 == null) {num2 = buttonNumber}
+                else {num2 += buttonNumber;}
             break;
         // Taking advantage of the fall-through property of switch statements. 
         // We need to clearMemory if we don't want to iterate with the result of previous calculation.
@@ -72,9 +73,9 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
             clearMemory();
         case "No operator selected":
             if  (num1 == 0) {
-                num1 = event.target.textContent;
+                num1 = buttonNumber;
             } else {
-                num1 += event.target.textContent;
+                num1 += buttonNumber;
             }
             break;
 
@@ -83,10 +84,11 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
     }))
 
 buttonZero.addEventListener('click', event => {
+    let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null) {num2 = event.target.textContent}
-                else {num2 += event.target.textContent;}
+            if (num2 == null) {num2 = buttonNumber}
+                else {num2 += buttonNumber;}
             break;
         case "Result": 
             clearMemory();
@@ -94,7 +96,7 @@ buttonZero.addEventListener('click', event => {
             if  (num1 == 0) {
                 break;
             } else {
-                num1 += event.target.textContent;
+                num1 += buttonNumber;
             }
             break;
     }
@@ -168,7 +170,7 @@ function operate(num1, num2, operator) {
         case '+':
             operation = add;
             break;
-            case '-':
+        case '-':
             operation = subtract;
             break;
         case '*':
