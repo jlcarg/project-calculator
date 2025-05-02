@@ -63,7 +63,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
     let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null || num2 == 0) {
+            if (num2 == null || num2 == "0") {
                 num2 = buttonNumber;
             } else {
                 num2 += buttonNumber;
@@ -74,7 +74,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 == 0) {
+            if  (num1 == "0") {
                 num1 = buttonNumber;
             } else {
                 num1 += buttonNumber;
