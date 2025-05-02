@@ -73,7 +73,11 @@ function startCalculator() {
             return;
         }))
 
-        buttonZero.addEventListener('click', pressButtonZero);
+        buttonZero.addEventListener('click', event => {
+            pressButtonZero();
+            event.target.blur();
+            return;
+        });
 
         buttonsOperators.forEach(button => button.addEventListener('click', event => {
             selectOperator(event);
@@ -172,6 +176,7 @@ function startCalculator() {
                 break;
 
         }
+        event.target.blur();
         updateDisplayedDigits();
     }
 
