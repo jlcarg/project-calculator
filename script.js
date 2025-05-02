@@ -79,8 +79,68 @@ buttonDot.addEventListener('click', addDecimalDot);
 
 buttonBackspace.addEventListener('click', deleteLastDigit);
 
+document.addEventListener('keyup', event => {
+    switch (event.key) {
+        case '9':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '8':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '7':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '6':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '5':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '4':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '3':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '2':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '1':
+            pressAButtonFromOneToNine(event);
+            break;
+        case '0':
+            pressButtonZero();
+            break;
+        case '+':
+            selectOperator(event);
+            break;
+        case '-':
+            selectOperator(event);
+            break;
+        case '*':
+            selectOperator(event);
+            break;
+        case '/':
+            selectOperator(event);
+            break;
+        case 'Enter':
+            getResult()
+            break;
+        case '.':
+            addDecimalDot();
+            break;
+        case 'c':
+            clearMemory();
+            break;
+        case 'Backspace':
+            deleteLastDigit();
+            break;
+    }
+    return;
+})
+
 function pressAButtonFromOneToNine(event) {
-    let buttonNumber = event.target.textContent;
+    let buttonNumber = event.type == 'click' ? event.target.textContent : event.key;
     switch (getOperatorInstruction()) {
         case "Operator selected":
             if (num2 == null || num2 == "0") {
@@ -131,7 +191,7 @@ function pressButtonZero() {
 function selectOperator(event) {
     let instruction = getOperatorInstruction();
     if (instruction == 'No operator selected' || instruction == 'Result') {
-        operator = event.target.textContent;
+        operator = event.type == 'click' ? event.target.textContent : event.key;
         num1 = Number.parseFloat(displayedDigits.textContent)};
 }
 
