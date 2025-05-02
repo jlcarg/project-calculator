@@ -85,25 +85,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
     updateDisplayedDigits();
     }))
 
-buttonZero.addEventListener('click', event => {
-    let buttonNumber = event.target.textContent;
-    switch (getOperatorInstruction()) {
-        case "Operator selected":
-            if (num2 == null || num2 == 0) {num2 = buttonNumber}
-                else {num2 += buttonNumber;}
-            break;
-        case "Result": 
-            clearMemory();
-        case "No operator selected":
-            if  (num1 == 0) {
-                break;
-            } else {
-                num1 += buttonNumber;
-            }
-            break;
-    }
-    updateDisplayedDigits();
-    })
+buttonZero.addEventListener('click', pressButtonZero);
 
 buttonsOperators.forEach(button => button.addEventListener('click', event => {
     selectOperator(event);
@@ -117,6 +99,29 @@ buttonC.addEventListener('click', clearMemory);
 buttonDot.addEventListener('click', addDecimalDot);
 
 buttonBackspace.addEventListener('click', deleteLastDigit);
+
+function pressButtonZero() {
+    let buttonZero = "0";
+    switch (getOperatorInstruction()) {
+        case "Operator selected":
+            if (num2 == null || num2 == 0) {
+                num2 = buttonZero;
+            } else {
+                num2 += buttonZero;
+            }
+            break;
+        case "Result": 
+            clearMemory();
+        case "No operator selected":
+            if  (num1 == 0) {
+                break;
+            } else {
+                num1 += buttonZero;
+            }
+            break;
+    }
+    updateDisplayedDigits();
+}
 
 function selectOperator(event) {
     let instruction = getOperatorInstruction();
@@ -150,7 +155,7 @@ function addDecimalDot() {
             clearMemory();
             break; // We don't want to add a dot directly to the new num1, so we break the switch statement instead of letting fall-through
         case "No operator selected":
-            if  (checkAlreadyFloat(num1)) {
+            if (checkAlreadyFloat(num1)) {
                 break;
             } else {
                 num1 += decimalDot;
