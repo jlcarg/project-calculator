@@ -102,21 +102,6 @@ buttonZero.addEventListener('click', event => {
     }
     updateDisplayedDigits();
     })
-// )
-//     switch (operator.length < 1) {
-//         case true:
-//             if (num1 == 0) break;
-//             else {
-//                 num1 += event.target.textContent;
-//                 break;}
-//         case false:
-//             if (num2 == 0) break;
-//             else {
-//                 num2 += event.target.textContent;
-//                 break;}
-//     }
-//     updateDisplayedDigits();
-// })
 
 buttonsOperators.forEach(button => button.addEventListener('click', event => {
     if (operator.length === 0 || operator == 'displayingResult') {
