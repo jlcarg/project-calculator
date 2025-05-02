@@ -19,8 +19,8 @@ html {
 }
 
 .display {
-    height: 150px;
-    width: 490px;
+    height: 90px;
+    width: 410px;
     background-color: #5d7e5d;
     display: flex;
     justify-content: start;
@@ -31,18 +31,19 @@ html {
 .digits {
     padding: 0 10px;
     overflow: hidden;
+    width: 380px;
 }
 
 .keypad {
     display: flex;
     flex-wrap: wrap;
-    width: 490px;
-    height: 600px;
+    width: 410px;
+    height: 450px;
     background-color: darkgray;
 }
 
 .button {
-    width: 122.5px;
+    width: 102.5px;
     font-size: 30px;
     font-weight: bolder;
     text-align: center;
@@ -51,7 +52,7 @@ html {
 
 .⌫,
 .equal {
-    width: 245px; 
+    width: 205px; 
 }
 
 .C,
