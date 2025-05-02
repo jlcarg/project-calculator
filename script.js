@@ -109,11 +109,11 @@ buttonsOperators.forEach(button => button.addEventListener('click', event => {
     let instruction = getOperatorInstruction();
     if (instruction == 'No operator selected' || instruction == 'Result') {
         operator = event.target.textContent;
-        num1 = Number.parseInt(displayedDigits.textContent)};    
+        num1 = Number.parseFloat(displayedDigits.textContent)};    
 }))
 
 buttonEqual.addEventListener('click', () => {
-    num2 = Number.parseInt(displayedDigits.textContent);
+    num2 = Number.parseFloat(displayedDigits.textContent);
     displayedDigits.textContent = operate(num1, num2, operator);
     operator = 'displayingResult';
     num1 = displayedDigits.textContent;
@@ -132,10 +132,9 @@ buttonDot.addEventListener('click', event => {
                 num2 += buttonFloat;
             }
             break;
-        // Taking advantage of the fall-through property of switch statements. 
-        // We need to clearMemory if we don't want to iterate with the result of previous calculation.
         case "Result": 
             clearMemory();
+            break; // We don't want to add a dot directly to the new num1, so we break the switch statement instead of letting fall-through
         case "No operator selected":
             if  (checkAlreadyFloat(num1)) {
                 break;
