@@ -74,7 +74,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 == 0) {
+            if  (num1 === 0) {
                 num1 = buttonNumber;
             } else {
                 num1 += buttonNumber;
@@ -95,7 +95,7 @@ buttonZero.addEventListener('click', event => {
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 == 0) {
+            if  (num1 === 0) {
                 break;
             } else {
                 num1 += buttonNumber;
@@ -121,6 +121,35 @@ buttonEqual.addEventListener('click', () => {
 })
 
 buttonC.addEventListener('click', clearMemory);
+
+buttonDot.addEventListener('click', event => {
+    let buttonFloat = event.target.textContent;
+    switch (getOperatorInstruction()) {
+        case "Operator selected":
+            if (num2 == null || checkAlreadyFloat(num2)) {
+                break;
+            } else {
+                num2 += buttonFloat;
+            }
+            break;
+        // Taking advantage of the fall-through property of switch statements. 
+        // We need to clearMemory if we don't want to iterate with the result of previous calculation.
+        case "Result": 
+            clearMemory();
+        case "No operator selected":
+            if  (checkAlreadyFloat(num1)) {
+                break;
+            } else {
+                num1 += buttonFloat;
+            }
+            break;
+    }
+    updateDisplayedDigits();
+})
+
+function checkAlreadyFloat(num) {
+    return num.toString().includes('.');
+}
 
 function clearMemory() {
     operator = '';
