@@ -123,14 +123,18 @@ buttonEqual.addEventListener('click', () => {
 
 buttonC.addEventListener('click', clearMemory);
 
-buttonDot.addEventListener('click', event => {
-    let buttonFloat = event.target.textContent;
+buttonDot.addEventListener('click', addDecimalDot);
+
+buttonBackspace.addEventListener('click', deleteLastDigit);
+
+function addDecimalDot() {
+    let decimalDot = ".";
     switch (getOperatorInstruction()) {
         case "Operator selected":
             if (num2 == null || checkAlreadyFloat(num2)) {
                 break;
             } else {
-                num2 += buttonFloat;
+                num2 += decimalDot;
             }
             break;
         case "Result": 
@@ -140,14 +144,12 @@ buttonDot.addEventListener('click', event => {
             if  (checkAlreadyFloat(num1)) {
                 break;
             } else {
-                num1 += buttonFloat;
+                num1 += decimalDot;
             }
             break;
     }
     updateDisplayedDigits();
-})
-
-buttonBackspace.addEventListener('click', deleteLastDigit)
+}
 
 function deleteLastDigit() {
     switch (getOperatorInstruction()) {
