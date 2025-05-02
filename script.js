@@ -60,6 +60,26 @@ const buttonC = buttonsArr.find(button => button.textContent == 'C');
 const buttonBackspace = buttonsArr.find(button => button.textContent == '⌫');
 
 buttonsFromOneToNine.forEach(button => button.addEventListener('click', event => {
+    pressAButtonFromOneToNine(event);
+    return;
+}))
+
+buttonZero.addEventListener('click', pressButtonZero);
+
+buttonsOperators.forEach(button => button.addEventListener('click', event => {
+    selectOperator(event);
+    return;  
+}))
+
+buttonEqual.addEventListener('click', getResult);
+
+buttonC.addEventListener('click', clearMemory);
+
+buttonDot.addEventListener('click', addDecimalDot);
+
+buttonBackspace.addEventListener('click', deleteLastDigit);
+
+function pressAButtonFromOneToNine(event) {
     let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
@@ -83,22 +103,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
 
     }
     updateDisplayedDigits();
-    }))
-
-buttonZero.addEventListener('click', pressButtonZero);
-
-buttonsOperators.forEach(button => button.addEventListener('click', event => {
-    selectOperator(event);
-    return;  
-}))
-
-buttonEqual.addEventListener('click', getResult);
-
-buttonC.addEventListener('click', clearMemory);
-
-buttonDot.addEventListener('click', addDecimalDot);
-
-buttonBackspace.addEventListener('click', deleteLastDigit);
+}
 
 function pressButtonZero() {
     let buttonZero = "0";
