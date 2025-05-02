@@ -26,23 +26,22 @@ for (let button of buttonsChars) {
         case "add":
             newButton.textContent = '+';
             break;
-            case "subtract":
+        case "subtract":
             newButton.textContent = '-';
             break;
-            case "multiply":
+        case "multiply":
             newButton.textContent = '*';
             break;
-            case "divide":
+        case "divide":
             newButton.textContent = '/';
             break;
-            case "dot":
+        case "dot":
             newButton.textContent = '.';
             break;
-            case "equal":
+        case "equal":
             newButton.textContent = '=';
             break;
 }
-
 }
 
 const buttonsArr = Array.from(document.querySelectorAll('.button'));
@@ -52,9 +51,9 @@ const buttonsFromOneToNine = buttonsArr
                                     Number.parseInt(button.textContent) !=  0);
 const buttonZero = buttonsArr.find(button => button.textContent == '0');
 const buttonsOperators = buttonsArr.filter(button => button.textContent == '+' 
-                || button.textContent == '-' 
-                || button.textContent == '*' 
-                || button.textContent == '/')
+                                                  || button.textContent == '-' 
+                                                  || button.textContent == '*' 
+                                                  || button.textContent == '/')
 const buttonEqual = buttonsArr.find(button => button.textContent == '=');
 const buttonDot = buttonsArr.find(button => button.textContent == '.');
 const buttonC = buttonsArr.find(button => button.textContent == 'C');
@@ -64,8 +63,11 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
     let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null) {num2 = buttonNumber}
-                else {num2 += buttonNumber;}
+            if (num2 == null) {
+                num2 = buttonNumber;
+            } else {
+                num2 += buttonNumber;
+            }
             break;
         // Taking advantage of the fall-through property of switch statements. 
         // We need to clearMemory if we don't want to iterate with the result of previous calculation.
