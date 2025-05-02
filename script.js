@@ -245,6 +245,13 @@ function operate(num1, num2, operator) {
             break;
     }
 
-    return operation(num1, num2);
+    result = operation(num1, num2);
+    
+    switch (Number.isInteger(result)){
+        case true:
+            return result;
+        case false:
+            return result.toFixed(2);
+    }
 
 }
