@@ -102,7 +102,8 @@ buttonZero.addEventListener('click', event => {
     })
 
 buttonsOperators.forEach(button => button.addEventListener('click', event => {
-    if (operator.length === 0 || operator == 'displayingResult') {
+    let instruction = getOperatorInstruction();
+    if (instruction == 'No operator selected' || instruction == 'Result') {
         operator = event.target.textContent;
         num1 = Number.parseInt(displayedDigits.textContent)};    
 }))
