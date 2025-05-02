@@ -88,8 +88,6 @@ buttonZero.addEventListener('click', event => {
             if (num2 == null) {num2 = event.target.textContent}
                 else {num2 += event.target.textContent;}
             break;
-        // Taking advantage of the fall-through property of switch statements. 
-        // We need to clearMemory if we don't want to iterate with the result of previous calculation.
         case "Result": 
             clearMemory();
         case "No operator selected":
