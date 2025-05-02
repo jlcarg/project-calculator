@@ -113,12 +113,13 @@ buttonsOperators.forEach(button => button.addEventListener('click', event => {
 }))
 
 buttonEqual.addEventListener('click', () => {
+    if (getOperatorInstruction() == "Operator selected" && num2 != null) {
     num2 = Number.parseFloat(displayedDigits.textContent);
     displayedDigits.textContent = operate(num1, num2, operator);
     operator = 'displayingResult';
     num1 = displayedDigits.textContent;
     num2 = null;
-})
+}})
 
 buttonC.addEventListener('click', clearMemory);
 
