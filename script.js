@@ -131,15 +131,11 @@ function getOperatorInstruction() {
     switch (operator.length) {
         case 0:
             return "No operator selected";
-            break;
         case 1:
             return "Operator selected";
-            break;
         case 16:
             return "Result";
-            break;
     }
-    return;
 }
 
 function updateDisplayedDigits() {
