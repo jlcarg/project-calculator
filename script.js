@@ -112,20 +112,24 @@ buttonsOperators.forEach(button => button.addEventListener('click', event => {
         num1 = Number.parseFloat(displayedDigits.textContent)};    
 }))
 
-buttonEqual.addEventListener('click', () => {
-    if (getOperatorInstruction() == "Operator selected" && num2 != null) {
-    num2 = Number.parseFloat(displayedDigits.textContent);
-    displayedDigits.textContent = operate(num1, num2, operator);
-    operator = 'displayingResult';
-    num1 = displayedDigits.textContent;
-    num2 = null;
-}})
+buttonEqual.addEventListener('click', getResult);
 
 buttonC.addEventListener('click', clearMemory);
 
 buttonDot.addEventListener('click', addDecimalDot);
 
 buttonBackspace.addEventListener('click', deleteLastDigit);
+
+function getResult() {
+    if (getOperatorInstruction() == "Operator selected" && num2 != null) {
+        num2 = Number.parseFloat(displayedDigits.textContent);
+        displayedDigits.textContent = operate(num1, num2, operator);
+        operator = 'displayingResult';
+        num1 = displayedDigits.textContent;
+        num2 = null;
+
+        return;
+}}
 
 function addDecimalDot() {
     let decimalDot = ".";
@@ -149,6 +153,7 @@ function addDecimalDot() {
             break;
     }
     updateDisplayedDigits();
+    return;
 }
 
 function deleteLastDigit() {
