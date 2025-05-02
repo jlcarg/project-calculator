@@ -154,7 +154,7 @@ function pressAButtonFromOneToNine(event) {
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 == "0") {
+            if  (num1 == "0" || num1 == 'ERR0R!') {
                 num1 = buttonNumber;
             } else {
                 num1 += buttonNumber;
@@ -306,7 +306,8 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    result = num2 != 0 ? num1 / num2 : 'ERR0R!';
+    return result;
 }
 
 function operate(num1, num2, operator) {
@@ -329,7 +330,7 @@ function operate(num1, num2, operator) {
 
     result = operation(num1, num2);
     
-    switch (Number.isInteger(result)){
+    switch (Number.isInteger(result) || result == 'ERR0R!'){
         case true:
             return result;
         case false:
