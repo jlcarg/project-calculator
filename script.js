@@ -4,7 +4,7 @@ displayedDigits.classList.add('digits');
 display.appendChild(displayedDigits);
 
 let operator = '';
-let num1 = 0;
+let num1 = "0";
 let num2 = null;
 
 updateDisplayedDigits();
@@ -63,7 +63,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
     let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null) {
+            if (num2 == null || num2 == 0) {
                 num2 = buttonNumber;
             } else {
                 num2 += buttonNumber;
@@ -74,7 +74,7 @@ buttonsFromOneToNine.forEach(button => button.addEventListener('click', event =>
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 === 0) {
+            if  (num1 == 0) {
                 num1 = buttonNumber;
             } else {
                 num1 += buttonNumber;
@@ -89,13 +89,13 @@ buttonZero.addEventListener('click', event => {
     let buttonNumber = event.target.textContent;
     switch (getOperatorInstruction()) {
         case "Operator selected":
-            if (num2 == null) {num2 = buttonNumber}
+            if (num2 == null || num2 == 0) {num2 = buttonNumber}
                 else {num2 += buttonNumber;}
             break;
         case "Result": 
             clearMemory();
         case "No operator selected":
-            if  (num1 === 0) {
+            if  (num1 == 0) {
                 break;
             } else {
                 num1 += buttonNumber;
@@ -147,6 +147,39 @@ buttonDot.addEventListener('click', event => {
     updateDisplayedDigits();
 })
 
+buttonBackspace.addEventListener('click', deleteLastDigit)
+
+function deleteLastDigit() {
+    switch (getOperatorInstruction()) {
+        case "Operator selected":
+            if (!num2) {
+                break;
+            } else if (num2.length == 1) {
+                num2 = "0";
+                break;
+            } else {
+                num2 = [...num2];
+                num2.pop();
+                num2 = num2.join('');
+                break;
+            }
+        case "Result":
+            clearMemory();
+            break;
+        case "No operator selected":
+            if (num1.length == 1) {
+                num1 = "0";
+                break;
+            } else {
+                num1 = [...num1];
+                num1.pop();
+                num1 = num1.join('');
+            }
+    }
+    updateDisplayedDigits();
+    return;
+}
+
 function checkAlreadyFloat(num) {
     return num.toString().includes('.');
 }
@@ -154,7 +187,7 @@ function checkAlreadyFloat(num) {
 function clearMemory() {
     operator = '';
     num2 = null;
-    num1 = 0;
+    num1 = "0";
 
     updateDisplayedDigits();
 
