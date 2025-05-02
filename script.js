@@ -106,10 +106,8 @@ buttonZero.addEventListener('click', event => {
     })
 
 buttonsOperators.forEach(button => button.addEventListener('click', event => {
-    let instruction = getOperatorInstruction();
-    if (instruction == 'No operator selected' || instruction == 'Result') {
-        operator = event.target.textContent;
-        num1 = Number.parseFloat(displayedDigits.textContent)};    
+    selectOperator(event);
+    return;  
 }))
 
 buttonEqual.addEventListener('click', getResult);
@@ -119,6 +117,13 @@ buttonC.addEventListener('click', clearMemory);
 buttonDot.addEventListener('click', addDecimalDot);
 
 buttonBackspace.addEventListener('click', deleteLastDigit);
+
+function selectOperator(event) {
+    let instruction = getOperatorInstruction();
+    if (instruction == 'No operator selected' || instruction == 'Result') {
+        operator = event.target.textContent;
+        num1 = Number.parseFloat(displayedDigits.textContent)};
+}
 
 function getResult() {
     if (getOperatorInstruction() == "Operator selected" && num2 != null) {
