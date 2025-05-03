@@ -4,6 +4,64 @@ html {
     padding: 0;
 }
 
+body {
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Digital dream Narrow';
+    src: url('digital-dream.narrow.ttf') format('truetype');
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+    font-family: monospace, sans-serif;
+    color: lightpink;   
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
+    Transform: scale(1.05);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+
+h2 {
+    margin-bottom: 7px;
+    font-size: 35px;
+}
+
+.project-name {
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+
+.name-and-github-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.me {
+    font-size: 20px;
+}
+
+img {
+    width: 30px;
+}
+
 .container {
     width: 100%;
     height: 100vh;
@@ -15,23 +73,27 @@ html {
 
 .display,
 .keypad {
-    border: 10px,solid, black;
+    border: 14px, solid, rgb(61, 61, 61);
 }
 
 .display {
     height: 90px;
     width: 410px;
-    background-color: #5d7e5d;
+    background-color: lightgrey;
     display: flex;
     justify-content: start;
     align-items: center;
-    font-size: 60px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 12px 10px 2px 1px rgba(130, 130, 255, 0.2);
 }
 
 .digits {
     padding: 0 10px;
     overflow: hidden;
     width: 380px;
+    font-family: 'Digital dream Narrow', monospace, sans-serif;
+    font-size: 56px;
 }
 
 .keypad {
@@ -40,6 +102,11 @@ html {
     width: 410px;
     height: 450px;
     background-color: darkgray;
+    font-family: sans-serif;
+    border-top-width: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(130, 130, 255, 0.2);
 }
 
 .button {
@@ -57,7 +124,7 @@ html {
 
 .C,
 .⌫ {
-    background-color: cornflowerblue;
+    background-color: lightpink;
 }
 
 .add,
@@ -70,5 +137,5 @@ html {
 
 
 .equal {
-    background-color: lightsalmon;
+    background-color:gray;
 }
